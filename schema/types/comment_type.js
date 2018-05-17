@@ -15,10 +15,10 @@ const CommentType = new GraphQLObjectType({
   fields: () => ({
     id: { type: GraphQLID },
     message: { type: new GraphQLNonNull(GraphQLString) },
-    commmentor: {
+    commentor: {
       type: require('../types/user_type'),
       resolve: async (root, args, context) => {
-        let user = await User.findOne({ where: { id: root.commmentor } })
+        let user = await User.findOne({ where: { id: root.commentor } })
         return user;
       }
     },
