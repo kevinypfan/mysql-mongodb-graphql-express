@@ -12,7 +12,8 @@ const TokenType = new GraphQLObjectType({
   fields: () => ({
     tokenHash: { type: GraphQLID },
     id: { type: GraphQLID },
-    device: { type: GraphQLString }
+    device: { type: GraphQLString },
+    ip: { type: GraphQLString }
   })
 })
 

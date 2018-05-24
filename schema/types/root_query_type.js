@@ -40,6 +40,13 @@ const RootQueryType = new GraphQLObjectType({
         let post = await Post.findOne({ _id: postId });
         return post;
       }
+    },
+    check: {
+      type: UserType,
+      resolve: async (root, args, context) => {
+        if (!context.req.user) throw new Error("No Login")
+        return context.req.user
+      }
     }
   }
 })
